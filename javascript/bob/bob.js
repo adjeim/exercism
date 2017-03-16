@@ -1,19 +1,39 @@
 function Bob() {
-	this.hey = function(talk) {
-		if (talk === [/s*/g] || talk === '') {
-			return "Fine. Be that way!";
-		} 
 
-		if (talk === talk.toUpperCase()){
-			return 'Whoa, chill out!';
+	this.hey = function(talk){
+
+		var response = 'Whatever.';
+		var isSilence = !talk.match(/\S/);
+		var isShouting = talk === talk.toUpperCase() && !isSilence;
+		var isQuestion = talk.charAt(talk.length -1) === '?';
+		var isNumbers = talk.match(/\d+/);
+		var hasExclamation = talk.charAt(talk.length -1) === '!';
+
+		if (isSilence) {
+			response = 'Fine. Be that way!';
 		}
 
-		if (talk[talk.length -1] === '?') {
-			return 'Sure.';
+		if (isQuestion) {
+			response = 'Sure.';
 		}
 
-		return 'Whatever.';
-	}
+		if (isShouting && !isNumbers) {
+			response = 'Whoa, chill out!';
+		}
+
+		if (isNumbers) {
+			if (hasExclamation) {
+				response = 'Whoa, chill out!';
+			} else if (isQuestion) {
+				response = 'Sure.';
+			} else {
+				response = 'Whatever.';
+			}
+		}
+
+		return response;
+
+  };
 }
 
 module.exports = Bob;
