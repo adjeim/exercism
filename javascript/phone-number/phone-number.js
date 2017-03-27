@@ -8,7 +8,15 @@ function PhoneNumber(string) {
 		} else {
 			return '0000000000';
 		}
-	}
+	};
+
+	this.areaCode = function() {
+		var number = this.number();
+		var code = number.substr(0, 3);
+
+		return code;
+
+	};
 
 }
 
