@@ -46,12 +46,12 @@ describe('PhoneNumber()', function() {
     expect(phone.areaCode()).toEqual('555');
   });
 
-  xit('formats a number', function() {
+  it('formats a number', function() {
     var phone = new PhoneNumber('1234567890');
     expect(phone.toString()).toEqual('(123) 456-7890');
   });
 
-  xit('formats some other number', function() {
+  it('formats some other number', function() {
     var phone = new PhoneNumber('5554567890');
     expect(phone.toString()).toEqual('(555) 456-7890');
   });
