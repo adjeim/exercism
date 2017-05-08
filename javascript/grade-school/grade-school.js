@@ -7,7 +7,14 @@ function School() {
 	};
 
 	this.add = function(student, grade) {
-		this.rosterContents[grade] = [student];
+		if (this.rosterContents[grade]) {
+			this.rosterContents[grade].push(student);
+			console.log(this.rosterContents);
+		} else {
+			this.rosterContents[grade] = [student];
+			console.log(this.rosterContents);
+		};
+		
 	};
 
 }
