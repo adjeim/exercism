@@ -14,10 +14,14 @@ function Robot() {
 
 		return name;
 
+	};
 
-		
-	}
 	this.name = this.generateName();
+
+	this.reset = function() {
+		this.name = this.generateName()
+
+	}
 
 }
 
