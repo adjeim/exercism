@@ -3,21 +3,19 @@ function ETL() {
 
 		let score;
 		let letter;
+		let transformed = {};
 
-		for (var key in old) {
+		for (let key in old) {
 				// console.log(key); // the key 
 				score = parseInt(key);
-				
-		    var value = old[key][0];
-		    // console.log(value); // the value
-		    letter = value.toLowerCase();
+
+				for (let item in old[key]) {
+					// console.log(old[key]); // the value
+					let letter = old[key][item].toLowerCase();
+					transformed[letter] = score
+					// console.log(transformed);
+				};
 		};
-
-		// console.log(score);
-		// console.log(letter);
-
-		let transformed = {};
-		transformed[letter] = score;
 
 		return transformed;
 	};
