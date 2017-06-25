@@ -9,6 +9,16 @@ function Grains() {
 
 	};
 
+	this.total = () => {
+		let totalGrains = BigInt(0);
+
+		for (let i = 0; i < 65; i ++) {
+			totalGrains = totalGrains.add(BigInt(this.square(i)));
+		};
+		
+		return totalGrains.toString();
+	};
+
 }
 
 module.exports = Grains;
